@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+using namespace std;
+
 class Vector2d
 {
 private: 
@@ -21,6 +24,25 @@ public:
 	void sub(Vector2d);
 	void mult(double);
 	double scalarMult(Vector2d);
+
+	Vector2d Vector2d::operator+(const Vector2d & vector) const;
+	Vector2d Vector2d::operator-(const Vector2d & vector) const;
+	double Vector2d::operator*(const Vector2d & vector) const;
+	Vector2d Vector2d::operator*(double) const;
+
+	friend Vector2d operator*(double, Vector2d&);
+
+	Vector2d& operator++();
+	Vector2d operator++(int);
+	Vector2d& operator--();
+	Vector2d operator--(int);
+
+	const Vector2d& operator += (const Vector2d &);
+	const Vector2d& operator -= (const Vector2d &);
+	const Vector2d& operator *= (const Vector2d &);
+
+	operator string();
+	double len();
 
 	~Vector2d();
 };
